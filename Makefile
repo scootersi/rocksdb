@@ -75,7 +75,9 @@ endif
 ifneq ($(DEBUG_LEVEL), 2)
 OPT += -O2 -fno-omit-frame-pointer
 ifneq ($(MACHINE),ppc64) # ppc64 doesn't support -momit-leaf-frame-pointer
+ifneq ($(MACHINE),armv7l) # arm (RPi) doesn't support -momit-leaf-frame-pointer
 OPT += -momit-leaf-frame-pointer
+endif
 endif
 endif
 
